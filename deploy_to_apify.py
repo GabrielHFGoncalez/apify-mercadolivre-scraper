@@ -112,7 +112,7 @@ def sync_all_actor_files(actor_dir: pathlib.Path):
                 rel_path = full_path.relative_to(actor_dir)
                 push_file_to_github(client, str(rel_path), full_path)
 
-    print(f"\n[✓] All files synced to: https://github.com/{REPO_FULL_NAME}")
+    print(f"\n[SUCCESS] All files synced to: https://github.com/{REPO_FULL_NAME}")
 
 
 def link_apify_actor(client: httpx.Client):
@@ -146,7 +146,7 @@ def link_apify_actor(client: httpx.Client):
     res = client.post("https://api.apify.com/v2/acts", headers=apify_headers, json=actor_payload)
     if res.status_code in (200, 201):
         actor_data = res.json().get("data", {})
-        print(f"[✓] Apify Actor created/linked successfully: ID {actor_data.get('id')}")
+        print(f"[SUCCESS] Apify Actor created/linked successfully: ID {actor_data.get('id')}")
         print(f"    Console URL: https://console.apify.com/actors/{actor_data.get('id')}")
     else:
         print(f"[!] Apify API response ({res.status_code}): {res.text}")
