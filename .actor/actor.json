@@ -1,0 +1,24 @@
+{
+  "actorSpecification": 1,
+  "name": "mercadolivre-price-intel",
+  "title": "Mercado Livre Price & Product Intelligence Scraper (LATAM)",
+  "description": "Scrape Mercado Livre products, real-time pricing, stock indicators, ratings, seller reputation, and Full shipping badges across Brazil and Latin America. Built for e-commerce intelligence, competitor price tracking, and affiliate automation.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "input": "./input_schema.json",
+  "categories": [
+    "ECOMMERCE",
+    "MONITORING",
+    "INTEGRATIONS"
+  ],
+  "pricingInfos": [
+    {
+      "pricingModel": "PAY_PER_EVENT",
+      "pricePerUnitUsd": 0.002
+    }
+  ]
+}
