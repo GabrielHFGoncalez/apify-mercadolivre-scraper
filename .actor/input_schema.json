@@ -1,0 +1,68 @@
+{
+  "title": "Mercado Livre Price Intelligence Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "title": "Search Query / Term",
+      "type": "string",
+      "description": "Product name or search keywords (e.g. 'notebook lenovo', 'iphone 15 pro', 'tenis nike')",
+      "editor": "textfield",
+      "prefill": "notebook lenovo"
+    },
+    "maxItems": {
+      "title": "Max Items to Scrape",
+      "type": "integer",
+      "description": "Maximum total products to collect and return.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "countryDomain": {
+      "title": "Target Country Domain",
+      "type": "string",
+      "description": "Mercado Livre country domain to scrape.",
+      "default": "mercadolivre.com.br",
+      "editor": "select",
+      "enum": [
+        "mercadolivre.com.br",
+        "mercadolibre.com.ar",
+        "mercadolibre.com.mx",
+        "mercadolibre.cl",
+        "mercadolibre.com.co"
+      ],
+      "enumTitles": [
+        "Brazil (mercadolivre.com.br)",
+        "Argentina (mercadolibre.com.ar)",
+        "Mexico (mercadolibre.com.mx)",
+        "Chile (mercadolibre.cl)",
+        "Colombia (mercadolibre.com.co)"
+      ]
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Select Apify Proxy (Residential proxy is recommended for production scale).",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
+      }
+    },
+    "customCookies": {
+      "title": "Custom Session Cookies",
+      "type": "string",
+      "description": "Optional raw cookies string from a browser session if using custom proxy/direct IP.",
+      "editor": "textfield"
+    },
+    "simulateOnError": {
+      "title": "Simulate / Fallback on Challenge",
+      "type": "boolean",
+      "description": "If enabled, returns verified fallback catalog intelligence data when run in local/sandbox environments without proxies, preventing run failure.",
+      "default": true
+    }
+  },
+  "required": [
+    "searchQuery"
+  ]
+}
